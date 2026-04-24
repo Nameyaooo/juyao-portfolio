@@ -1,199 +1,201 @@
-const projects = [
-  {
-    title: "Travel Photography Website",
-    description:
-      "A personal website for documenting my travel, photography, restaurants, and city experiences.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-  },
-  {
-    title: "AI Resume Helper",
-    description:
-      "A tool that helps students generate tailored resumes and cover letters based on job descriptions.",
-    tech: ["React", "AI", "Web App"],
-  },
-  {
-    title: "Exchange Course Planner",
-    description:
-      "A course planning tool for exchange students to track course mappings, credit transfer status, and graduation requirements.",
-    tech: ["TypeScript", "Planning Tool", "Student App"],
-  },
-];
-
 const skills = [
-  "C",
-  "Python",
   "JavaScript",
   "TypeScript",
   "React",
   "Next.js",
   "Tailwind CSS",
-  "SQL",
-  "Git",
-  "GitHub",
+  "Python",
+  "C",
+  "UI/UX Thinking",
+];
+
+const projects = [
+  {
+    title: "Travel Journal Website",
+    desc: "A personal website to document trips, photography, and stories from different places.",
+  },
+  {
+    title: "AI Productivity Tool",
+    desc: "A practical web tool that uses AI to improve learning, writing, or workflow efficiency.",
+  },
+  {
+    title: "Finance Dashboard",
+    desc: "A clean dashboard concept for tracking markets, investments, and personal finance insights.",
+  },
+  {
+    title: "Photography Portfolio",
+    desc: "A visual gallery project showcasing selected photography work in a minimal layout.",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-black">
-      <header className="fixed left-0 top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#" className="text-sm font-bold tracking-tight">
+    <div className="relative min-h-screen overflow-x-hidden">
+      {/* 背景光晕 */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-[-120px] top-[80px] h-72 w-72 rounded-full bg-sky-200/40 blur-3xl" />
+        <div className="absolute right-[-100px] top-[160px] h-72 w-72 rounded-full bg-violet-200/40 blur-3xl" />
+        <div className="absolute left-1/3 top-[540px] h-60 w-60 rounded-full bg-cyan-100/40 blur-3xl" />
+      </div>
+
+      {/* Navbar */}
+      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="#" className="text-sm font-semibold tracking-wide">
             Juyao Li
           </a>
 
-          <div className="hidden gap-6 text-sm text-gray-600 md:flex">
-            <a href="#about" className="hover:text-black">
-              About
-            </a>
-            <a href="#skills" className="hover:text-black">
-              Skills
-            </a>
-            <a href="#projects" className="hover:text-black">
-              Projects
-            </a>
-            <a href="#contact" className="hover:text-black">
-              Contact
-            </a>
-          </div>
-        </nav>
+          <nav className="hidden gap-8 text-sm text-slate-600 md:flex">
+            <a href="#about" className="transition hover:text-black">About</a>
+            <a href="#skills" className="transition hover:text-black">Skills</a>
+            <a href="#projects" className="transition hover:text-black">Projects</a>
+            <a href="#contact" className="transition hover:text-black">Contact</a>
+          </nav>
+        </div>
       </header>
 
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pt-20">
-        <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-gray-500">
-          Portfolio
-        </p>
-
-        <h1 className="mb-6 max-w-4xl text-5xl font-bold tracking-tight md:text-7xl">
-          Hi, I&apos;m Juyao Li.
-        </h1>
-
-        <p className="mb-8 max-w-2xl text-lg leading-8 text-gray-600">
-          I am a Computer Science student at UNSW. I build practical web apps,
-          AI tools, and personal projects around travel, photography, and
-          finance.
-        </p>
-
-        <div className="flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-gray-800"
-          >
-            View Projects
-          </a>
-
-          <a
-            href="#contact"
-            className="rounded-full border border-gray-300 px-6 py-3 text-sm font-medium transition hover:border-black"
-          >
-            Contact Me
-          </a>
-        </div>
-      </section>
-
-      <section id="about" className="mx-auto max-w-6xl px-6 py-24">
-        <div className="grid gap-10 md:grid-cols-3">
-          <h2 className="text-3xl font-bold">About Me</h2>
-
-          <div className="md:col-span-2">
-            <p className="text-lg leading-8 text-gray-600">
-              I am currently studying Computer Science at UNSW. I am interested
-              in software engineering, web development, AI tools, and building
-              useful products. Outside of coding, I enjoy golf, tennis,
-              photography, travel, and learning about financial markets.
+      <main className="mx-auto max-w-6xl px-6">
+        {/* Hero */}
+        <section className="flex min-h-[88vh] items-center py-24">
+          <div className="max-w-3xl">
+            <p className="mb-5 text-sm uppercase tracking-[0.35em] text-slate-400">
+              Portfolio
             </p>
+
+            <h1 className="text-5xl font-semibold leading-tight tracking-tight text-slate-950 md:text-7xl">
+              Hi, I&apos;m <span className="bg-gradient-to-r from-slate-900 to-slate-500 bg-clip-text text-transparent">Juyao Li</span>.
+            </h1>
+
+            <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600 md:text-xl">
+              I am a Computer Science student at UNSW. I build practical web apps,
+              AI tools, and personal projects around travel, photography, and finance.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="rounded-2xl border border-slate-200 bg-white/90 px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 hover:shadow-md"
+              >
+                View Projects
+              </a>
+              <a
+                href="#contact"
+                className="rounded-2xl border border-slate-200 bg-white/80 px-6 py-3 text-sm font-medium text-slate-700 transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-white"
+              >
+                Contact Me
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="skills" className="mx-auto max-w-6xl px-6 py-24">
-        <h2 className="mb-10 text-3xl font-bold">Skills</h2>
-
-        <div className="flex flex-wrap gap-3">
-          {skills.map((skill) => (
-            <span
-              key={skill}
-              className="rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section id="projects" className="mx-auto max-w-6xl px-6 py-24">
-        <div className="mb-10">
-          <h2 className="mb-3 text-3xl font-bold">Projects</h2>
-          <p className="max-w-2xl text-gray-600">
-            These are the projects I am building to improve my technical skills
-            and demonstrate my ability to create practical software.
+        {/* About */}
+        <section
+          id="about"
+          className="mb-8 rounded-3xl border border-black/5 bg-white/75 p-8 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-10"
+        >
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.28em] text-slate-400">
+            About
           </p>
-        </div>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+            Clean design, practical building.
+          </h2>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
+            I enjoy building projects that are useful, visually clean, and easy to use.
+            My interests include web development, AI tools, photography, travel,
+            and finance. I want this website to be a simple place to present who I am
+            and what I&apos;m working on.
+          </p>
+        </section>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {projects.map((project) => (
-            <article
-              key={project.title}
-              className="rounded-2xl border border-gray-200 p-6 transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              <h3 className="mb-3 text-xl font-semibold">{project.title}</h3>
+        {/* Skills */}
+        <section
+          id="skills"
+          className="mb-8 rounded-3xl border border-black/5 bg-white/75 p-8 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-10"
+        >
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.28em] text-slate-400">
+            Skills
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+            Tools I use
+          </h2>
 
-              <p className="mb-5 text-sm leading-6 text-gray-600">
-                {project.description}
-              </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-700"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
 
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600"
-                  >
-                    {item}
-                  </span>
-                ))}
+        {/* Projects */}
+        <section
+          id="projects"
+          className="mb-8 rounded-3xl border border-black/5 bg-white/75 p-8 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-10"
+        >
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.28em] text-slate-400">
+            Projects
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+            Selected work
+          </h2>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
+            {projects.map((project) => (
+              <div
+                key={project.title}
+                className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg"
+              >
+                <h3 className="text-xl font-semibold text-slate-900">
+                  {project.title}
+                </h3>
+                <p className="mt-3 leading-7 text-slate-600">
+                  {project.desc}
+                </p>
+                <button className="mt-6 text-sm font-medium text-slate-900">
+                  View details →
+                </button>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      <section id="contact" className="mx-auto max-w-6xl px-6 py-24">
-        <div className="rounded-3xl bg-black p-10 text-white md:p-16">
-          <h2 className="mb-4 text-3xl font-bold">Let&apos;s connect.</h2>
-
-          <p className="mb-8 max-w-2xl text-gray-300">
-            I am open to software engineering internships, project
-            collaborations, and opportunities to build practical web and AI
-            products.
+        {/* Contact */}
+        <section
+          id="contact"
+          className="mb-20 rounded-3xl border border-black/5 bg-white/75 p-8 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-10"
+        >
+          <p className="mb-3 text-sm font-medium uppercase tracking-[0.28em] text-slate-400">
+            Contact
+          </p>
+          <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+            Let&apos;s connect
+          </h2>
+          <p className="mt-5 max-w-2xl leading-8 text-slate-600">
+            If you want to talk about web development, projects, travel, photography,
+            or future collaboration, feel free to reach out.
           </p>
 
-          <div className="flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="mailto:juyaoli@outlook.com"
-              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black"
+              className="rounded-2xl border border-slate-200 bg-white/90 px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm shadow-slate-900/5 transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 hover:shadow-md"
             >
               Email Me
             </a>
-
             <a
               href="https://github.com/Nameyaooo"
-              className="rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white"
+              target="_blank"
+              className="rounded-2xl border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
             >
               GitHub
             </a>
-
-            <a
-              href="https://www.linkedin.com/in/juyao-li-341747399/"
-              className="rounded-full border border-white/30 px-6 py-3 text-sm font-medium text-white"
-            >
-              LinkedIn
-            </a>
           </div>
-        </div>
-      </section>
-
-      <footer className="border-t border-gray-100 px-6 py-8 text-center text-sm text-gray-500">
-        © 2026 Juyao Li. Built with Next.js and Tailwind CSS.
-      </footer>
-    </main>
+        </section>
+      </main>
+    </div>
   );
 }
