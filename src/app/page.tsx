@@ -12,14 +12,17 @@ const skills = [
 const projects = [
   {
     title: "Photography Portfolio",
+    href: "/projects/photography",
     desc: "A curated collection of my photography work, focusing on travel, city views, daily moments, and visual storytelling through a clean and minimal layout.",
   },
   {
     title: "UNSW Project: Toohak-Kahoot",
+    href: "/projects/toohak",
     desc: "A real-time quiz application project developed at UNSW, where I worked on backend logic, API design, input validation, testing, and Agile team collaboration.",
   },
   {
     title: "HKU Exchange Journey",
+    href: "/projects/hku-exchange",
     desc: "A personal showcase of my exchange experience at The University of Hong Kong, including academic life, international exposure, and personal growth.",
   },
 ];
@@ -151,9 +154,12 @@ export default function Home() {
                 <p className="mt-3 leading-7 text-slate-600">
                   {project.desc}
                 </p>
-                <button className="mt-6 text-sm font-medium text-slate-900">
+                <a
+                  href={project.href}
+                  className="mt-6 inline-block text-sm font-medium text-slate-900 transition hover:translate-x-1"
+                >
                   Explore →
-                </button>
+                </a>
               </div>
             ))}
           </div>
