@@ -11,20 +11,16 @@ const skills = [
 
 const projects = [
   {
-    title: "Travel Journal Website",
-    desc: "A personal website to document trips, photography, and stories from different places.",
-  },
-  {
-    title: "AI Productivity Tool",
-    desc: "A practical web tool that uses AI to improve learning, writing, or workflow efficiency.",
-  },
-  {
-    title: "Finance Dashboard",
-    desc: "A clean dashboard concept for tracking markets, investments, and personal finance insights.",
-  },
-  {
     title: "Photography Portfolio",
-    desc: "A visual gallery project showcasing selected photography work in a minimal layout.",
+    desc: "A curated collection of my photography work, focusing on travel, city views, daily moments, and visual storytelling through a clean and minimal layout.",
+  },
+  {
+    title: "UNSW Project: Toohak-Kahoot",
+    desc: "A real-time quiz application project developed at UNSW, where I worked on backend logic, API design, input validation, testing, and Agile team collaboration.",
+  },
+  {
+    title: "HKU Exchange Journey",
+    desc: "A personal showcase of my exchange experience at The University of Hong Kong, including academic life, international exposure, and personal growth.",
   },
 ];
 
@@ -140,10 +136,10 @@ export default function Home() {
             Projects
           </p>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
-            Selected work
+            Projects & Experience
           </h2>
 
-          <div className="mt-8 grid gap-5 md:grid-cols-2">
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {projects.map((project) => (
               <div
                 key={project.title}
@@ -156,7 +152,7 @@ export default function Home() {
                   {project.desc}
                 </p>
                 <button className="mt-6 text-sm font-medium text-slate-900">
-                  View details →
+                  Explore →
                 </button>
               </div>
             ))}
