@@ -17,17 +17,20 @@ const projects = [
   {
     title: "Photography Portfolio",
     href: "/projects/photography",
-    desc: "A curated collection of my photography work, focusing on travel, city views, daily moments, and visual storytelling through a clean and minimal layout.",
+    desc: "A personal photography collection featuring travel, city views, street moments, and visual storytelling through a clean portfolio layout.",
+    label: "View Gallery",
   },
   {
-    title: "UNSW Project: Toohak-Kahoot",
+    title: "UNSW Academic Project: Toohak",
     href: "/projects/toohak",
-    desc: "A real-time quiz application project developed at UNSW, where I worked on backend logic, API design, input validation, testing, and Agile team collaboration.",
+    desc: "A private academic web application project developed at UNSW. I worked on backend logic, API design, validation, testing, and team collaboration. Source code is not public due to academic integrity and course policy.",
+    label: "View Case Study",
   },
   {
     title: "HKU Exchange Journey",
     href: "/projects/hku-exchange",
-    desc: "A personal showcase of my exchange experience at The University of Hong Kong, including academic life, international exposure, and personal growth.",
+    desc: "A personal page documenting my exchange journey at The University of Hong Kong, including academic experience, campus life, cultural exposure, and personal growth.",
+    label: "View Journey",
   },
 ];
 
@@ -208,7 +211,7 @@ export default function Home() {
                   href={project.href}
                   className="mt-6 inline-block text-sm font-medium text-cyan-100 transition hover:translate-x-1 hover:text-white"
                 >
-                  Explore →
+                  {project.label} →
                 </a>
               </div>
             ))}

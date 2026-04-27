@@ -49,31 +49,54 @@ const photos = [
 const locations = ["Hong Kong", "Sydney", "Australia"];
 const styles = ["Street", "Cityscape", "Travel", "Daily Life", "Architecture"];
 
+function StarField() {
+  return (
+    <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden bg-slate-950">
+      <div
+        className="absolute inset-0 opacity-70"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 30%, rgba(255,255,255,0.95) 0 1px, transparent 1.5px),
+            radial-gradient(circle at 80% 20%, rgba(255,255,255,0.8) 0 1px, transparent 1.5px),
+            radial-gradient(circle at 40% 70%, rgba(255,255,255,0.7) 0 1px, transparent 1.5px),
+            radial-gradient(circle at 65% 55%, rgba(255,255,255,0.75) 0 1px, transparent 1.5px),
+            radial-gradient(circle at 90% 80%, rgba(255,255,255,0.8) 0 1px, transparent 1.5px)
+          `,
+          backgroundSize: "220px 220px",
+        }}
+      />
+
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.26),transparent_32%),radial-gradient(circle_at_80%_30%,rgba(168,85,247,0.24),transparent_30%),radial-gradient(circle_at_50%_85%,rgba(14,165,233,0.14),transparent_35%)]" />
+
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/55 via-slate-950/85 to-slate-950" />
+
+      <div className="absolute left-[-120px] top-[120px] h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
+      <div className="absolute right-[-120px] top-[260px] h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
+      <div className="absolute bottom-[180px] left-1/3 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+    </div>
+  );
+}
+
 export default function PhotographyPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden">
-      {/* Background */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-[-140px] top-[80px] h-80 w-80 rounded-full bg-sky-200/40 blur-3xl" />
-        <div className="absolute right-[-120px] top-[220px] h-80 w-80 rounded-full bg-violet-200/40 blur-3xl" />
-        <div className="absolute left-1/3 top-[680px] h-72 w-72 rounded-full bg-cyan-100/50 blur-3xl" />
-      </div>
+    <main className="relative min-h-screen overflow-x-hidden text-white">
+      <StarField />
 
       {/* Navbar */}
-      <header className="sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/50 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link href="/" className="text-sm font-semibold tracking-wide text-slate-950">
+          <Link href="/" className="text-sm font-semibold tracking-wide text-white">
             Juyao Li
           </Link>
 
-          <nav className="hidden gap-8 text-sm text-slate-600 md:flex">
-            <Link href="/" className="transition hover:text-black">
+          <nav className="hidden gap-8 text-sm text-slate-300 md:flex">
+            <Link href="/" className="transition hover:text-white">
               Home
             </Link>
-            <Link href="/#projects" className="transition hover:text-black">
+            <Link href="/#projects" className="transition hover:text-white">
               Projects
             </Link>
-            <Link href="/#contact" className="transition hover:text-black">
+            <Link href="/#contact" className="transition hover:text-white">
               Contact
             </Link>
           </nav>
@@ -83,22 +106,22 @@ export default function PhotographyPage() {
       <div className="mx-auto max-w-6xl px-6 py-10">
         <Link
           href="/"
-          className="inline-flex rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm font-medium text-slate-600 shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:text-slate-950"
+          className="inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15"
         >
           ← Back to Home
         </Link>
 
         {/* Hero */}
         <section className="py-20">
-          <p className="mb-5 text-sm uppercase tracking-[0.35em] text-slate-400">
+          <p className="mb-5 text-sm uppercase tracking-[0.35em] text-cyan-200/80">
             Photography Portfolio
           </p>
 
-          <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight text-slate-950 md:text-7xl">
+          <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight text-white md:text-7xl">
             Moments from Hong Kong, Sydney and my travels.
           </h1>
 
-          <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-600 md:text-xl">
+          <p className="mt-8 max-w-3xl text-lg leading-8 text-slate-300 md:text-xl">
             This page collects my photography work, including city views, street
             moments, architecture details, and travel memories. I use photography
             to record places I have visited and the feeling of everyday life.
@@ -108,7 +131,7 @@ export default function PhotographyPage() {
             {locations.map((location) => (
               <span
                 key={location}
-                className="rounded-full border border-slate-200 bg-white/80 px-4 py-2 text-sm text-slate-600 shadow-sm"
+                className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl"
               >
                 {location}
               </span>
@@ -117,9 +140,9 @@ export default function PhotographyPage() {
         </section>
 
         {/* Featured */}
-        <section className="mb-10 overflow-hidden rounded-3xl border border-black/5 bg-white/75 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl">
+        <section className="mb-10 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.07] shadow-[0_20px_80px_rgba(0,0,0,0.3)] backdrop-blur-xl">
           <div className="grid gap-0 lg:grid-cols-2">
-            <div className="relative min-h-[420px] bg-slate-100">
+            <div className="relative min-h-[420px] bg-slate-900">
               <Image
                 src="/photography/hongkong-1.jpeg"
                 alt="Featured Hong Kong photography"
@@ -129,18 +152,19 @@ export default function PhotographyPage() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
+              <div className="absolute inset-0 bg-slate-950/10" />
             </div>
 
             <div className="flex flex-col justify-center p-8 md:p-10">
-              <p className="mb-4 text-sm uppercase tracking-[0.3em] text-slate-400">
+              <p className="mb-4 text-sm uppercase tracking-[0.3em] text-cyan-200/70">
                 Featured Story
               </p>
 
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+              <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
                 Hong Kong through my lens.
               </h2>
 
-              <p className="mt-5 leading-8 text-slate-600">
+              <p className="mt-5 leading-8 text-slate-300">
                 Hong Kong is one of the main places I want to document. The city
                 has a strong mix of density, movement, light, and daily life. I
                 want this photography page to become a visual diary of my exchange
@@ -151,7 +175,7 @@ export default function PhotographyPage() {
                 {styles.map((style) => (
                   <span
                     key={style}
-                    className="rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-600"
+                    className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-slate-200"
                   >
                     {style}
                   </span>
@@ -165,15 +189,15 @@ export default function PhotographyPage() {
         <section className="py-10">
           <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
             <div>
-              <p className="mb-3 text-sm uppercase tracking-[0.3em] text-slate-400">
+              <p className="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-200/70">
                 Gallery
               </p>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+              <h2 className="text-3xl font-semibold tracking-tight text-white">
                 Selected Photos
               </h2>
             </div>
 
-            <p className="max-w-xl leading-7 text-slate-600">
+            <p className="max-w-xl leading-7 text-slate-300">
               A simple gallery layout for my current and future photography work.
               More photos can be added by placing images in the public folder.
             </p>
@@ -183,9 +207,9 @@ export default function PhotographyPage() {
             {photos.map((photo) => (
               <article
                 key={photo.src}
-                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+                className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.07] shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-xl transition hover:-translate-y-1 hover:bg-white/[0.11] hover:shadow-2xl hover:shadow-cyan-500/10"
               >
-                <div className="relative aspect-[4/5] overflow-hidden bg-slate-100">
+                <div className="relative aspect-[4/5] overflow-hidden bg-slate-900">
                   <Image
                     src={photo.src}
                     alt={photo.title}
@@ -196,19 +220,19 @@ export default function PhotographyPage() {
                 </div>
 
                 <div className="p-5">
-                  <p className="text-xs uppercase tracking-[0.25em] text-slate-400">
+                  <p className="text-xs uppercase tracking-[0.25em] text-cyan-200/60">
                     {photo.category}
                   </p>
 
-                  <h3 className="mt-3 text-xl font-semibold text-slate-950">
+                  <h3 className="mt-3 text-xl font-semibold text-white">
                     {photo.title}
                   </h3>
 
-                  <p className="mt-2 text-sm text-slate-500">
+                  <p className="mt-2 text-sm text-slate-400">
                     {photo.location}
                   </p>
 
-                  <p className="mt-4 leading-7 text-slate-600">
+                  <p className="mt-4 leading-7 text-slate-300">
                     {photo.desc}
                   </p>
                 </div>
@@ -218,16 +242,16 @@ export default function PhotographyPage() {
         </section>
 
         {/* Add More */}
-        <section className="mb-20 mt-10 rounded-3xl border border-black/5 bg-white/75 p-8 shadow-[0_10px_40px_rgba(15,23,42,0.08)] backdrop-blur-xl md:p-10">
-          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-slate-400">
+        <section className="mb-20 mt-10 rounded-3xl border border-white/10 bg-white/[0.07] p-8 shadow-[0_20px_80px_rgba(0,0,0,0.25)] backdrop-blur-xl md:p-10">
+          <p className="mb-3 text-sm uppercase tracking-[0.3em] text-cyan-200/70">
             How I update this page
           </p>
 
-          <h2 className="text-3xl font-semibold tracking-tight text-slate-950">
+          <h2 className="text-3xl font-semibold tracking-tight text-white">
             More photos coming soon.
           </h2>
 
-          <p className="mt-5 max-w-3xl leading-8 text-slate-600">
+          <p className="mt-5 max-w-3xl leading-8 text-slate-300">
             I will continue adding new photography work from Hong Kong, Sydney,
             China, and future travel destinations. This page is designed to grow
             with my personal portfolio.
