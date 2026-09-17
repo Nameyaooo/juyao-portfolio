@@ -1,20 +1,44 @@
 import Link from "next/link";
 import { Locale, SiteHeader, StarField } from "./site-chrome";
 
-const skills = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  "Python",
-  "C",
-  "Rust",
-  "CI/CD",
-  "GitHub Actions",
-  "Testing",
-  "UI/UX Thinking",
-];
+const skillGroups = {
+  en: [
+    {
+      title: "Programming",
+      items: ["Python", "Java", "JavaScript", "TypeScript", "Rust", "C", "C++", "SQL"],
+    },
+    {
+      title: "Tools & Databases",
+      items: ["MySQL", "Git", "UML"],
+    },
+    {
+      title: "Languages",
+      items: ["Mandarin (Native)", "English (Fluent)", "Japanese (Basic)"],
+    },
+    {
+      title: "Interests",
+      items: ["Golf", "Photography", "Tennis", "Basketball", "Cinema"],
+    },
+  ],
+  zh: [
+    {
+      title: "编程语言",
+      items: ["Python", "Java", "JavaScript", "TypeScript", "Rust", "C", "C++", "SQL"],
+    },
+    {
+      title: "工具与数据库",
+      items: ["MySQL", "Git", "UML"],
+    },
+    {
+      title: "语言",
+      items: ["中文（母语）", "英语（流利）", "日语（基础）"],
+    },
+    {
+      title: "兴趣",
+      items: ["高尔夫", "摄影", "网球", "篮球", "电影"],
+    },
+  ],
+} as const;
 
 const copy = {
   en: {
@@ -27,9 +51,9 @@ const copy = {
     aboutLabel: "About",
     aboutTitle: "Clean design, practical building.",
     aboutBody:
-      "I enjoy building projects that are useful, visually clean, and easy to use. My interests include web development, AI tools, photography, travel, and finance. I want this website to be a simple place to present who I am and what I’m working on.",
+      "I enjoy building projects that are useful, visually clean, and easy to use. Outside of development, I enjoy golf, photography, tennis, basketball, and cinema. I want this website to be a simple place to present who I am and what I’m working on.",
     skillsLabel: "Skills",
-    skillsTitle: "Tools I use",
+    skillsTitle: "Technical Skills & Interests",
     projectsLabel: "Projects",
     projectsTitle: "Projects & Experience",
     contactLabel: "Contact",
@@ -68,9 +92,9 @@ const copy = {
     aboutLabel: "关于我",
     aboutTitle: "简洁设计，实用开发。",
     aboutBody:
-      "我喜欢制作真正有用、视觉简洁并且容易使用的项目。我的兴趣包括 Web 开发、AI 工具、摄影、旅行和金融。我希望这个网站能用简单直接的方式介绍我自己，以及我正在做的事情。",
+      "我喜欢制作真正有用、视觉简洁并且容易使用的项目。在开发之外，我喜欢高尔夫、摄影、网球、篮球和电影。我希望这个网站能用简单直接的方式介绍我自己，以及我正在做的事情。",
     skillsLabel: "技能",
-    skillsTitle: "我使用的工具",
+    skillsTitle: "技术技能与兴趣",
     projectsLabel: "项目",
     projectsTitle: "项目与经历",
     contactLabel: "联系",
@@ -103,6 +127,7 @@ const copy = {
 
 export function HomePage({ locale }: { locale: Locale }) {
   const content = copy[locale];
+  const skills = skillGroups[locale];
   const projectPrefix = locale === "zh" ? "/zh/projects" : "/projects";
 
   return (
@@ -179,14 +204,26 @@ export function HomePage({ locale }: { locale: Locale }) {
           <h2 className="text-3xl font-semibold tracking-tight text-white">
             {content.skillsTitle}
           </h2>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15"
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {skills.map((group) => (
+              <article
+                key={group.title}
+                className="rounded-2xl border border-white/10 bg-white/[0.06] p-5"
               >
-                {skill}
-              </span>
+                <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-100/80">
+                  {group.title}
+                </h3>
+                <div className="mt-4 flex flex-wrap gap-2.5">
+                  {group.items.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-sm text-slate-200 backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-white/15"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
         </section>
